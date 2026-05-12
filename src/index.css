@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-cyan: #06b6d4;
+  --color-brand-emerald: #10b981;
+  --color-brand-amber: #f59e0b;
+  --color-brand-orange: #f97316;
+}
+
+@layer base {
+  :root {
+    --bg-main: #ffffff;
+    --bg-card: #ffffff;
+    --border-color: #e5e5e5;
+    --text-primary: #000000;
+    --text-secondary: #404040;
+    --text-muted: #737373;
+    --accent-glow: rgba(0, 0, 0, 0.05);
+    --chart-grid: #f5f5f5;
+    --sidebar-bg: #fafafa;
+  }
+
+  .dark {
+    --bg-main: #000000;
+    --bg-card: #0a0a0a;
+    --border-color: #262626;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-muted: #525252;
+    --accent-glow: rgba(255, 255, 255, 0.05);
+    --chart-grid: #171717;
+    --sidebar-bg: #000000;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    @apply transition-colors duration-300 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    @apply rounded-2xl shadow-sm transition-all duration-300;
+  }
+  
+  .dark .glass-card {
+    @apply bg-slate-900/40 backdrop-blur-md border-slate-800/50 shadow-xl;
+  }
+
+  .glass-card-hover {
+    @apply hover:shadow-lg;
+  }
+  
+  .dark .glass-card-hover {
+    @apply hover:border-cyan-500/30 hover:bg-slate-900/60 hover:shadow-cyan-500/5;
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors;
+}

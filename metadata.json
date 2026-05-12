@@ -1,0 +1,6 @@
+{
+  "name": "SK Power Core",
+  "description": "Industrial-grade solar energy management system with real-time panel health monitoring, AI-powered generation forecasting, and efficient asset tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["Real-time Data Visualization", "AI Forecasting", "Panel Health Diagnostics"]
+}
